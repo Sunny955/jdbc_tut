@@ -25,7 +25,7 @@ public class jdbc1 {
 
             // Process the data
             while(rs.next()) {
-                int emp_no = rs.getInt(1);
+                int emp_no = rs.getInt("emp_no");
                 String first_name = rs.getString(3);
                 String last_name = rs.getString(4);
 
