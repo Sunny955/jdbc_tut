@@ -4,22 +4,10 @@ import java.sql.*;
 public class jdbc1 {
     public static void main(String[] args) {
         try{
-            // Load the driver
-            Class.forName("com.mysql.jdbc.Driver");
-
             // Creating connection
-            String url = "jdbc:mysql://localhost:3306/employees";
-            String user = "root";
-            String password = "";
-            Connection con = DriverManager.getConnection(url,user,password);
+            Connection con = ConnectionProvider.getConnection("employees");
 
-            if(con.isClosed()){
-                System.out.println("Connection is closed!!");
-            }else {
-                System.out.println("Connection created!");
-            }
-
-            // SQL queries
+            // SQL query
             String q = "select * from employees limit 50";
 
             Statement stmt = con.createStatement();
@@ -31,7 +19,7 @@ public class jdbc1 {
                 String first_name = rs.getString(3);
                 String last_name = rs.getString(4);
 
-                System.out.println("Employee number-----> "+emp_no+" First Name-----> "+first_name+" Last Name-----> "+last_name);
+                System.out.println(emp_no+" : "+first_name+" : "+last_name);
             }
 
             // Closing connection

@@ -8,7 +8,7 @@ public class jdbc2 {
     public static void main(String[] args) {
         try{
             // Creating connection
-            Connection c = ConnectionProvider.getConnection();
+            Connection c = ConnectionProvider.getConnection("jdbc_test");
 
             // Query
             String q = "insert into images(pic) values(?)"; // Dynamic query
